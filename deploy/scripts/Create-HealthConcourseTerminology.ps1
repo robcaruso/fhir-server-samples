@@ -56,7 +56,10 @@ param(
  $deploymentName,
 
  [string]
- $templateFilePath = "../templates/azuredeploy-aci-importer-terminology.json"
+ $templateFilePath = "../templates/azuredeploy-aci-importer-terminology.json",
+
+ [string]
+ $parametersFilePath = "parameters.json"
 )
 
 <#
