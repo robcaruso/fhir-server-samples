@@ -3,9 +3,9 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
-            "defaultValue": "terminology-service",
+            "defaultValue": "transformation-service",
             "type": "String"
-        }, 
+        },
         "location": {
             "type": "string",
             "defaultValue": "[resourceGroup().location]",
@@ -47,7 +47,7 @@
                     {
                         "name": "[parameters('appName')]",
                         "properties": {
-                            "image": "repository-hc.openplatform.healthcare/dhp-terminology-service:latest",
+                            "image": "repository-hc.openplatform.healthcare/dhp-transformation-service:latest",
                             "ports": [
                                 {
                                     "protocol": "TCP",
@@ -56,20 +56,8 @@
                             ],
                             "environmentVariables": [
                                 {
-                                    "name": "WKHL_ENABLED",
-                                    "value": "false"
-                                },
-                                {
-                                    "name": "SERVER_PORT",
-                                    "value": "8080"
-                                },
-                                {
-                                    "name": "profile",
-                                    "value": "default"
-                                },
-                                {
-                                    "name": "env",
-                                    "value": "default"
+                                    "name": "MDMIAAS_URL",
+                                    "value": "[concat('http://mdmi-rt-service.',parameters('containerGroups_nifi_name'), '.azurecontainer.io:8080/org.mdmi.rt.service/transformation')]"
                                 }
                             ],
                             "resources": {
@@ -84,10 +72,10 @@
                 "imageRegistryCredentials": [
                     {
                         "server": "repository-hc.openplatform.healthcare",
-			            "username": "dhp-devops",
-                        "password": "[parameters('dockerPassword')]"
+                        "username": "dhp-devops"
                     }
                 ],
+                "restartPolicy": "OnFailure",
                 "ipAddress": {
                     "ports": [
                         {
@@ -98,7 +86,6 @@
                     "type": "Public",
                     "dnsNameLabel": "[parameters('appName')]"
                 },
-                "restartPolicy": "OnFailure",
                 "osType": "Linux"
             }
         }
