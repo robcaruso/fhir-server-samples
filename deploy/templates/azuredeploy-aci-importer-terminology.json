@@ -26,6 +26,13 @@
             "metadata": {
                 "description": "Memory in GB"
             }
+        },
+
+	"dockerPassword": {
+            "type": "secureString",
+            "metadata": {
+                "description": "password for docker repo."
+            }
         }
     },
     "variables": {},
@@ -77,7 +84,8 @@
                 "imageRegistryCredentials": [
                     {
                         "server": "repository-hc.openplatform.healthcare",
-                        "username": "dhp-devops"
+			"username": "dhp-devops",
+			"password": "[parameters('dockerPassword')]"
                     }
                 ],
                 "restartPolicy": "OnFailure",
