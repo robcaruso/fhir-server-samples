@@ -58,15 +58,15 @@
                             "environmentVariables": [
                                 {
                                     "name": "FHIR_SERVER",
-                                    "value": "https://fhirtestsrvr.azurewebsites.net"
+                                    "value": "[concat('https://', parameters('resourceGroupName'),'srvr.azurewebsites.net')]"
                                 },
                                 {
                                     "name": "TERMINOLOGY_SERVICE",
-                                    "value": "http://terminology-service-test.westus.azurecontainer.io:8080"
+                                    "value": "[concat('http://terminology-service.', parameters('location'), '.azurecontainer.io:8080')]"
                                 },
                                 {
                                     "name": "TRANSFORMATION_SERVICE",
-                                    "value": "http://transformation-service.westus.azurecontainer.io:8080"
+                                    "value": "[concat('http://transformation-service.', parameters('location'), '.azurecontainer.io:8080')]"
                                 }
                             ],
                             "resources": {
