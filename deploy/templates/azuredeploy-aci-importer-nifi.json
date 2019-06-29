@@ -58,7 +58,7 @@
                             "environmentVariables": [
                                 {
                                     "name": "FHIR_SERVER",
-                                    "value": "[concat('https://', parameters('resourceGroupName'),'srvr.azurewebsites.net')]"
+                                    "value": "[concat('https://', resourceGroup().name,'srvr.azurewebsites.net')]"
                                 },
                                 {
                                     "name": "TERMINOLOGY_SERVICE",
