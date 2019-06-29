@@ -38,7 +38,7 @@ param(
 
  [Parameter(Mandatory=$True)]
  [string]
- $deploymentName,
+ $deploymentName = "mdmi-rt-service",
 
  [string]
  $templateFilePath = "../templates/azuredeploy-aci-importer-mdmi.json",

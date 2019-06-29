@@ -38,7 +38,7 @@ param(
 
  [Parameter(Mandatory=$True)]
  [string]
- $deploymentName,
+ $deploymentName = "transformation-service",
 
  [string]
  $templateFilePath = "../templates/azuredeploy-aci-importer-transformation.json",

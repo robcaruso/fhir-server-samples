@@ -53,7 +53,7 @@ param(
 
  [Parameter(Mandatory=$True)]
  [string]
- $deploymentName,
+ $deploymentName = "terminology-service",
 
  [string]
  $templateFilePath = "../templates/azuredeploy-aci-importer-terminology.json",
