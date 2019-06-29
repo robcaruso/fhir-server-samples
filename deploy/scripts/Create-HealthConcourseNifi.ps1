@@ -25,7 +25,6 @@
 #>
 
 param(
-
  [Parameter(Mandatory=$True)]
  [string]
  $subscriptionId,
@@ -39,16 +38,13 @@ param(
 
  [Parameter(Mandatory=$True)]
  [string]
- $deploymentName = "terminology-service",
+ $deploymentName,
 
  [string]
- $templateFilePath = "../templates/azuredeploy-aci-importer-terminology.json",
+ $templateFilePath = "template.json",
 
  [string]
- $parametersFilePath = "parameters.json",
-
- [secureString]
- $dockerPassword
+ $parametersFilePath = "parameters.json"
 )
 
 <#

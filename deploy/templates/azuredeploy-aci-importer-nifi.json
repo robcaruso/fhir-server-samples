@@ -1,0 +1,103 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "defaultValue": "nifi",
+            "type": "String"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        
+        "cpuCores": {
+            "type": "int",
+            "defaultValue": 2,
+            "metadata": {
+                "description": "Number of CPU cores"
+            }
+        },
+        "memoryGb": {
+            "type": "int",
+            "defaultValue": 4,
+            "metadata": {
+                "description": "Memory in GB"
+            }
+        },
+
+	"dockerPassword": {
+            "type": "secureString",
+            "metadata": {
+                "description": "password for docker repo."
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2018-04-01",
+            "name": "[parameters('appName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "containers": [
+                    {
+                        "name": "[parameters('appName')]",
+                        "properties": {
+                            "image": "repository-hc.openplatform.healthcare/nifi:azv1",
+                            "ports": [
+                                {
+                                    "protocol": "TCP",
+                                    "port": 8080
+                                }
+                            ],
+                            "environmentVariables": [
+                                {
+                                    "name": "FHIR_SERVER",
+                                    "value": "https://fhirtestsrvr.azurewebsites.net"
+                                },
+                                {
+                                    "name": "TERMINOLOGY_SERVICE",
+                                    "value": "http://terminology-service-test.westus.azurecontainer.io:8080"
+                                },
+                                {
+                                    "name": "TRANSFORMATION_SERVICE",
+                                    "value": "http://transformation-service.westus.azurecontainer.io:8080"
+                                }
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "cpu": "[parameters('cpuCores')]",
+                                    "memoryInGB": "[parameters('memoryGb')]"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "imageRegistryCredentials": [
+                    {
+                        "server": "repository-hc.openplatform.healthcare",
+                        "username": "dhp-devops",
+                        "password": "[parameters('dockerPassword')]"
+                    }
+                ],
+                "restartPolicy": "OnFailure",
+                "ipAddress": {
+                    "ports": [
+                        {
+                            "protocol": "TCP",
+                            "port": 8080
+                        }
+                    ],
+                    "type": "Public",
+                    "dnsNameLabel": "hc-nifi"
+                },
+                "osType": "Linux"
+            }
+        }
+    ]
+}
