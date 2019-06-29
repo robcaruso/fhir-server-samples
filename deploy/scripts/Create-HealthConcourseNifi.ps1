@@ -41,7 +41,7 @@ param(
  $deploymentName,
 
  [string]
- $templateFilePath = "template.json",
+ $templateFilePath = "../templates/azuredeploy-aci-importer-nifi.json",
 
  [string]
  $parametersFilePath = "parameters.json"
