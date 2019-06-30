@@ -94,7 +94,7 @@
                         }
                     ],
                     "type": "Public",
-                    "dnsNameLabel": "[concat('hc-nifi-', resourceGroup().name)]b"
+                    "dnsNameLabel": "[concat('hc-nifi-', resourceGroup().name)]"
                 },
                 "osType": "Linux"
             }

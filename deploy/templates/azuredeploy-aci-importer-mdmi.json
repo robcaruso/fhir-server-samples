@@ -28,7 +28,7 @@
             }
         },
 
-	"dockerPassword": {
+	    "dockerPassword": {
             "type": "secureString",
             "metadata": {
                 "description": "password for docker repo."
