@@ -62,11 +62,11 @@
                                 },
                                 {
                                     "name": "TERMINOLOGY_SERVICE",
-                                    "value": "[concat('http://terminology-service.', parameters('location'), '.azurecontainer.io:8080')]"
+                                    "value": "[concat('http://terminology-service-', resourceGroup().name, '.', parameters('location'), '.azurecontainer.io:8080')]"
                                 },
                                 {
                                     "name": "TRANSFORMATION_SERVICE",
-                                    "value": "[concat('http://transformation-service.', parameters('location'), '.azurecontainer.io:8080')]"
+                                    "value": "[concat('http://transformation-service-',resourceGroup().name, '.', parameters('location'), '.azurecontainer.io:8080')]"
                                 }
                             ],
                             "resources": {
@@ -94,7 +94,7 @@
                         }
                     ],
                     "type": "Public",
-                    "dnsNameLabel": "hc-nifi"
+                    "dnsNameLabel": "[concat('hc-nifi-', resourceGroup().name)]b"
                 },
                 "osType": "Linux"
             }

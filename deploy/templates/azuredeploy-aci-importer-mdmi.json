@@ -79,7 +79,7 @@
                         }
                     ],
                     "type": "Public",
-                    "dnsNameLabel": "[parameters('appName')]"
+                    "dnsNameLabel": "[concat(parameters('appName'), '-' ,resourceGroup().name)]"
                 },
                 "restartPolicy": "OnFailure",
                 "osType": "Linux"

@@ -85,7 +85,7 @@
                         }
                     ],
                     "type": "Public",
-                    "dnsNameLabel": "[parameters('appName')]"
+                    "dnsNameLabel": "[concat(parameters('appName'), '-' ,resourceGroup().name)]"
                 },
                 "osType": "Linux"
             }
