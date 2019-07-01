@@ -167,7 +167,7 @@ $functionAppUrl = "https://${EnvironmentName}imp.azurewebsites.net"
 Invoke-WebRequest -Uri $functionAppUrl | Out-Null 
 
 Write-Host "Creating HealthConcourse"
-Create-HealthConcourseAll.ps1 -resourceGroupName $EnvironmentName -subscriptionId $azureRmContext
+./Create-HealthConcourseAll.ps1 -resourceGroupName $EnvironmentName -subscriptionId $azureRmContext
 
 @{
     dashboardUrl              = $dashboardJSUrl
