@@ -67,7 +67,8 @@
     },
     "variables": {
         "storageAccountName": "[replace(concat(toLower(parameters('appName')), 'sa'),'-','')]",
-        "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
+        "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "aadAudience": "[if(empty(parameters('aadAudience')),parameters('fhirServerUrl'),parameters('aadAudience'))]"
     },
     "resources": [
         {
@@ -133,6 +134,10 @@
                                 {
                                     "name": "FHIR_SERVER",
                                     "value": "[concat('https://', resourceGroup().name,'srvr.azurewebsites.net')]"
+                                },
+                                {
+                                    "name": "AAD_AUTHORITY",
+                                    "value": "[parameters('aadAuthority')]"
                                 },
                                 {
                                     "name": "CLIENT_ID",

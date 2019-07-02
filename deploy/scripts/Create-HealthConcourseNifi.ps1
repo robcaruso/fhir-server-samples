@@ -112,6 +112,9 @@ $aadAuthority = "https://login.microsoftonline.com/${tenantDomain}"
 $serviceClientId = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-id").SecretValueText
 $serviceClientSecret = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-secret").SecretValueText
 
+$fhirServerUrl = "https://${EnvironmentName}srvr.azurewebsites.net"
+
+
 # Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
