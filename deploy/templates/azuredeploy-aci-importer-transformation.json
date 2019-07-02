@@ -57,7 +57,7 @@
                             "environmentVariables": [
                                 {
                                     "name": "MDMIAAS_URL",
-                                    "value": "[concat('http://mdmi-rt-service.',resourceGroup().name, parameters('location'), '.azurecontainer.io:8080/org.mdmi.rt.service/transformation')]"
+                                    "value": "[concat('http://mdmi-rt-service.',resourceGroup().name,'.', parameters('location'), '.azurecontainer.io:8080/org.mdmi.rt.service/transformation')]"
                                 }
                             ],
                             "resources": {
