@@ -13,7 +13,6 @@
                 "description": "Location for all resources."
             }
         },
-        
         "cpuCores": {
             "type": "int",
             "defaultValue": 2,
@@ -28,8 +27,19 @@
                 "description": "Memory in GB"
             }
         },
-
-	"dockerPassword": {
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS"
+            ],
+            "metadata": {
+                "description": "Storage Account type"
+            }
+        },
+    	"dockerPassword": {
             "type": "secureString",
             "metadata": {
                 "description": "password for docker repo."
