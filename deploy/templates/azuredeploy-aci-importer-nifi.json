@@ -27,15 +27,9 @@
             }
         },
         "aadServiceClientSecret": {
-            "type": "securestring",
-            "metadata": {
-                "description": "AAD service client secret"
-            }
-        },
-        "fhirServerUrl": {
             "type": "string",
             "metadata": {
-                "description": "FHIR Server URL (also Audience used for resource application)"
+                "description": "AAD service client secret"
             }
         },
         "cpuCores": {
