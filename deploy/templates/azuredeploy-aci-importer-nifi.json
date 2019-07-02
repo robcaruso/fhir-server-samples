@@ -13,6 +13,31 @@
                 "description": "Location for all resources."
             }
         },
+        "aadAuthority": {
+            "type": "string",
+            "defaultValue": "https://login.microsoftonline.com/common",
+            "metadata": {
+                "description": "OAuth Authority"
+            }
+        },
+        "aadServiceClientId": {
+            "type": "string",
+            "metadata": {
+                "description": "AAD service client application id"
+            }
+        },
+        "aadServiceClientSecret": {
+            "type": "securestring",
+            "metadata": {
+                "description": "AAD service client secret"
+            }
+        },
+        "fhirServerUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "FHIR Server URL (also Audience used for resource application)"
+            }
+        },
         "cpuCores": {
             "type": "int",
             "defaultValue": 2,
@@ -104,16 +129,32 @@
                             ],
                             "environmentVariables": [
                                 {
-                                    "name": "FHIR_SERVER",
-                                    "value": "[concat('https://', resourceGroup().name,'srvr.azurewebsites.net')]"
-                                },
-                                {
                                     "name": "TERMINOLOGY_SERVICE",
                                     "value": "[concat('http://terminology-service-', resourceGroup().name, '.', parameters('location'), '.azurecontainer.io:8080')]"
                                 },
                                 {
                                     "name": "TRANSFORMATION_SERVICE",
                                     "value": "[concat('http://transformation-service-',resourceGroup().name, '.', parameters('location'), '.azurecontainer.io:8080')]"
+                                },
+                                {
+                                    "name": "FHIR_SERVER",
+                                    "value": "[concat('https://', resourceGroup().name,'srvr.azurewebsites.net')]"
+                                },
+                                {
+                                    "name": "CLIENT_ID",
+                                    "value": "[parameters('aadServiceClientId')]"
+                                },
+                                {
+                                    "name": "CLIENT_SECRET",
+                                    "value": "[parameters('aadServiceClientSecret')]"
+                                },
+                                {
+                                    "name": "STORAGE_ACT_NAME",
+                                    "value": "[variables('storageAccountName')]"
+                                },
+                                {
+                                    "name": "STORAGE_ACT_ID",
+                                    "value": "[variables('storageAccountId')]"
                                 }
                             ],
                             "resources": {
