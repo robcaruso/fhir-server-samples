@@ -36,7 +36,6 @@ param(
  [string]
  $resourceGroupLocation,
 
- [Parameter(Mandatory=$True)]
  [string]
  $deploymentName,
 
@@ -82,7 +81,7 @@ if($resourceProviders.length) {
         RegisterRP($resourceProvider);
     }
 }
-
+$deploymentName = "nifi"
 #Create or check for existing resource group
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
 if(!$resourceGroup)

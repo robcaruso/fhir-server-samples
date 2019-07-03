@@ -22,7 +22,6 @@
         },
         "aadAudience": {
             "type": "string",
-            "defaultValue": "",
             "metadata": {
                 "description": "OAuth Audience, if blank, will be set to fhirServerUrl"
             }
@@ -152,7 +151,7 @@
                                 },
                                 {
                                     "name": "FHIR_SERVER",
-                                    "value": "[concat('https://', resourceGroup().name,'srvr.azurewebsites.net')]"
+                                    "value": "[parameters('fhirServerUrl')]"
                                 },
                                 {
                                     "name": "AAD_AUTHORITY",
