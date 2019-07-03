@@ -118,7 +118,7 @@ $fhirServerUrl = "https://${EnvironmentName}srvr.azurewebsites.net"
 # Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret;
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -fhirServerUrl $fhirServerUrl;
 } else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $templateFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret;
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $templateFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -fhirServerUrl $fhirServerUrl -storageAccountKey $storageAccountKey;
 }

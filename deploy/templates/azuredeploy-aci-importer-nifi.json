@@ -159,6 +159,10 @@
                                     "value": "[parameters('aadAuthority')]"
                                 },
                                 {
+                                    "name": "AAD_AUDIENCE",
+                                    "value": "[parameters('aadAudience')]"
+                                },
+                                {
                                     "name": "CLIENT_ID",
                                     "value": "[parameters('aadServiceClientId')]"
                                 },
