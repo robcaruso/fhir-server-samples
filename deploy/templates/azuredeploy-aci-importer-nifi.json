@@ -20,6 +20,13 @@
                 "description": "OAuth Authority"
             }
         },
+        "aadAudience": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "OAuth Audience, if blank, will be set to fhirServerUrl"
+            }
+        },
         "aadServiceClientId": {
             "type": "string",
             "metadata": {
