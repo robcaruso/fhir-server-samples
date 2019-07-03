@@ -32,6 +32,12 @@
                 "description": "AAD service client secret"
             }
         },
+        "storageAccountKey": {
+            "type": "string",
+            "metadata": {
+                "description": "Stroage account Key"
+            }
+        },
         "cpuCores": {
             "type": "int",
             "defaultValue": 2,
@@ -154,6 +160,10 @@
                                 {
                                     "name": "STORAGE_ACT_ID",
                                     "value": "[variables('storageAccountId')]"
+                                },
+                                {
+                                    "name": "STORAGE_ACT_KEY",
+                                    "value": "[parameters('storageAccountKey')]"
                                 }
                             ],
                             "resources": {

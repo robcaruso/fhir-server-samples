@@ -111,7 +111,7 @@ $aadAuthority = "https://login.microsoftonline.com/${tenantDomain}"
 
 $serviceClientId = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-id").SecretValueText
 $serviceClientSecret = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-secret").SecretValueText
-
+$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentName}sa").Value[0]
 $fhirServerUrl = "https://${EnvironmentName}srvr.azurewebsites.net"
 
 
