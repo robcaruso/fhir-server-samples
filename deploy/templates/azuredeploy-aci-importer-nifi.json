@@ -45,6 +45,12 @@
                 "description": "Stroage account Key"
             }
         },
+        "fhirServerUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "FHIR Server URL (also Audience used for resource application)"
+            }
+        },
         "cpuCores": {
             "type": "int",
             "defaultValue": 2,
