@@ -123,7 +123,7 @@ $aadAuthority = "https://login.microsoftonline.com/${tenantDomain}"
 
 $serviceClientId = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-id").SecretValueText
 $serviceClientSecret = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-secret").SecretValueText
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentName}sa").Value[0]
+$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentNameNifi}sa").Value[0]
 $fhirServerUrl = "https://${resourceGroupName}srvr.azurewebsites.net"
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameMdmi -TemplateFile $templateFilePathMdmi;
