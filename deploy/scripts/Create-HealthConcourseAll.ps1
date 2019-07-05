@@ -129,7 +129,11 @@ $serviceClientSecret = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}
 #$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentNameNifi}sa").Value[0]
 $fhirServerUrl = "https://${resourceGroupName}srvr.azurewebsites.net"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameMdmi -TemplateFile $templateFilePathMdmi;
-New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTransformation -TemplateFile $templateFilePathTransformation;
-New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTerminology -TemplateFile $templateFilePathTerminology;
+Write-Host "Deploying Nifi";
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameNifi -TemplateFile $templateFilePathNifi -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -fhirServerUrl $fhirServerUrl;
+Write-Host "Deploying MDMI";
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameMdmi -TemplateFile $templateFilePathMdmi;
+Write-Host "Deploying Transformation";
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTransformation -TemplateFile $templateFilePathTransformation;
+Write-Host "Deploying Terminology";
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTerminology -TemplateFile $templateFilePathTerminology;
