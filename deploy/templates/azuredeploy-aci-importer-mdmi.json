@@ -26,13 +26,6 @@
             "metadata": {
                 "description": "Memory in GB"
             }
-        },
-
-	    "dockerPassword": {
-            "type": "secureString",
-            "metadata": {
-                "description": "password for docker repo."
-            }
         }
     },
     "variables": {},
