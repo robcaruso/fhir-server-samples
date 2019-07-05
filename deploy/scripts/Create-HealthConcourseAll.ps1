@@ -49,10 +49,16 @@ param(
  $deploymentNameNifi = "nifi",
 
  [string]
+ $deploymentNameNifiSa = "nifisa",
+
+ [string]
  $templateFilePathMdmi = "../templates/azuredeploy-aci-importer-mdmi.json",
 
  [string]
  $templateFilePathNifi = "../templates/azuredeploy-aci-importer-nifi.json",
+
+ [string]
+ $templateFilePathNifiSa = "../templates/azuredeploy-aci-importer-nifi-sa.json",
 
  [string]
  $templateFilePathTerminology = "../templates/azuredeploy-aci-importer-terminology.json",
@@ -123,10 +129,11 @@ $aadAuthority = "https://login.microsoftonline.com/${tenantDomain}"
 
 $serviceClientId = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-id").SecretValueText
 $serviceClientSecret = (Get-AzureKeyVaultSecret -VaultName "${resourceGroupName}-ts" -Name "${resourceGroupName}-service-client-secret").SecretValueText
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentNameNifi}sa").Value[0]
+#$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName "${resourceGroupName}" -AccountName "${deploymentNameNifi}sa").Value[0]
 $fhirServerUrl = "https://${resourceGroupName}srvr.azurewebsites.net"
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameMdmi -TemplateFile $templateFilePathMdmi;
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTransformation -TemplateFile $templateFilePathTransformation;
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTerminology -TemplateFile $templateFilePathTerminology;
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameNifi -TemplateFile $templateFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -fhirServerUrl $fhirServerUrl -storageAccountKey $storageAccountKey;
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameNifiSa -TemplateFile $templateFilePathSa
