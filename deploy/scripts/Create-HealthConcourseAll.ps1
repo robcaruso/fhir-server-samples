@@ -136,4 +136,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTransformation -TemplateFile $templateFilePathTransformation;
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameTerminology -TemplateFile $templateFilePathTerminology;
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameNifi -TemplateFile $templateFilePath -aadAuthority $aadAuthority -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -fhirServerUrl $fhirServerUrl -storageAccountKey $storageAccountKey;
-New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentNameNifiSa -TemplateFile $templateFilePathSa

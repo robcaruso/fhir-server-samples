@@ -39,12 +39,6 @@
                 "description": "AAD service client secret"
             }
         },
-        "storageAccountKey": {
-            "type": "string",
-            "metadata": {
-                "description": "Stroage account Key"
-            }
-        },
         "fhirServerUrl": {
             "type": "string",
             "metadata": {
@@ -180,7 +174,7 @@
                                 },
                                 {
                                     "name": "STORAGE_ACT_KEY",
-                                    "value": "[parameters('storageAccountKey')]"
+                                    "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
                                 }
                             ],
                             "resources": {
