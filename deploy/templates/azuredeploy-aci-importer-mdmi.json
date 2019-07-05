@@ -47,7 +47,7 @@
                     {
                         "name": "[parameters('appName')]",
                         "properties": {
-                            "image": "repository-hc.openplatform.healthcare/mdmi-rt-service:latest",
+                            "image": "docker-registry.openplatform.healthcare/mdmi-rt-service:azv1",
                             "ports": [
                                 {
                                     "protocol": "TCP",
@@ -62,13 +62,6 @@
                                 }
                             }
                         }
-                    }
-                ],
-                "imageRegistryCredentials": [
-                    {
-                        "server": "repository-hc.openplatform.healthcare",
-                        "username": "dhp-devops",
-                        "password": "[parameters('dockerPassword')]"
                     }
                 ],
                 "ipAddress": {

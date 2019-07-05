@@ -131,7 +131,7 @@
                     {
                         "name": "[parameters('appName')]",
                         "properties": {
-                            "image": "repository-hc.openplatform.healthcare/nifi:azv1",
+                            "image": "docker-registry.openplatform.healthcare/nifi:azv1",
                             "ports": [
                                 {
                                     "protocol": "TCP",
@@ -187,13 +187,6 @@
                                 }
                             }
                         }
-                    }
-                ],
-                "imageRegistryCredentials": [
-                    {
-                        "server": "repository-hc.openplatform.healthcare",
-                        "username": "dhp-devops",
-                        "password": "[parameters('dockerPassword')]"
                     }
                 ],
                 "restartPolicy": "OnFailure",
