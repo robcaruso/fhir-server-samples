@@ -37,7 +37,7 @@ param(
  $resourceGroupLocation,
 
  [string]
- $deploymentName,
+ $deploymentName = "nifi",
 
  [string]
  $templateFilePath = "../templates/azuredeploy-aci-importer-nifi.json",

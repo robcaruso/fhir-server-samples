@@ -37,7 +37,7 @@ param(
  [string]
  $resourceGroupLocation,
 
- [Parameter(Mandatory=$True)]
+ 
  [string]
  $deploymentName = "terminology-service",
 
@@ -71,8 +71,8 @@ Function RegisterRP {
 $ErrorActionPreference = "Stop"
 
 # sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
+#Write-Host "Logging in...";
+#Login-AzureRmAccount;
 
 # select subscription
 Write-Host "Selecting subscription '$subscriptionId'";
