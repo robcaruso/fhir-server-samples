@@ -162,12 +162,13 @@ if ([string]::IsNullOrEmpty($SqlAdminPassword))
 New-AzureRmResourceGroupDeployment -TemplateUri $sandboxTemplate -environmentName $EnvironmentName -ResourceGroupName $EnvironmentName -fhirServerTemplateUrl $fhirServerTemplateUrl -fhirVersion $FhirVersion -sqlAdminPassword $SqlAdminPassword -aadAuthority $aadAuthority -aadDashboardClientId $confidentialClientId -aadDashboardClientSecret $confidentialClientSecret -aadServiceClientId $serviceClientId -aadServiceClientSecret $serviceClientSecret -smartAppClientId $publicClientId -fhirDashboardTemplateUrl $dashboardTemplate -fhirDashboardJSTemplateUrl $dashboardJSTemplate -fhirImporterTemplateUrl $importerTemplate -fhirDashboardRepositoryUrl $SourceRepository -fhirDashboardRepositoryBranch $SourceRevision -deployDashboardSourceCode $DeploySource -usePaaS $UsePaaS -accessPolicies $accessPolicies -deployAdf $DeployAdf
 
 Write-Host "Warming up site..."
+Write-Host "${fhirServerUrl}/metadata"
 Invoke-WebRequest -Uri "${fhirServerUrl}/metadata" | Out-Null
 $functionAppUrl = "https://${EnvironmentName}imp.azurewebsites.net"
 Invoke-WebRequest -Uri $functionAppUrl | Out-Null 
 
 Write-Host "Creating HealthConcourse"
-./Create-HealthConcourseAll.ps1 -resourceGroupName $EnvironmentName -subscriptionId $azureRmContext
+./Create-HealthConcourseAll.ps1 -resourceGroupName $EnvironmentName -subscriptionId $azureRmContext.Subscription.Id
 
 @{
     dashboardUrl              = $dashboardJSUrl
