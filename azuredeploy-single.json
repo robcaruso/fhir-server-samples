@@ -41,18 +41,21 @@
         },
         "aadServiceClientId": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "AAD service client application id"
             }
         },
         "aadServiceClientSecret": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "AAD service client secret"
             }
         },
         "fhirServerUrl": {
             "type": "string",
+            "defaultValue": "",
             "metadata": {
                 "description": "FHIR Server URL (also Audience used for resource application)"
             }
