@@ -69,6 +69,9 @@ To delete the senario:
 ```PowerShell
 .\Delete-FhirServerSamplesEnvironment.ps1 -EnvironmentName <ENVIRONMENTNAME>
 ```
+<a href="https://transmogrify.azurewebsites.net/azuredeploy-single.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 # Contributing
 
