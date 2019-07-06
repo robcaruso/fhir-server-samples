@@ -228,7 +228,7 @@
                     {
                         "name": "[parameters('appNameMdmi')]",
                         "properties": {
-                            "image": "docker-registry.openplatform.healthcare/mdmi-rt-service:azv1",
+                            "image": "docker-registry.openplatform.healthcare/mdmi-rt-service:azv2",
                             "ports": [
                                 {
                                     "protocol": "TCP",
