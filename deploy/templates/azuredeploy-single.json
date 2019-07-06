@@ -86,6 +86,7 @@
     },
     "variables": {
         "storageAccountName": "[replace(concat(toLower(parameters('appNameNifi')), 'sa', resourceGroup().name),'-','')]",
+        "fhirStorageAccountName": "[replace(concat(toLower(resourceGroup().name), 'impsa'),'-','')]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
         "aadAudience": "[if(empty(parameters('aadAudience')),parameters('fhirServerUrl'),parameters('aadAudience'))]"
     },
@@ -184,6 +185,14 @@
                                 {
                                     "name": "STORAGE_ACT_KEY",
                                     "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+                                },
+                                {
+                                    "name": "FHIR_STORAGE_ACT_NAME",
+                                    "value": "[variables('fhirStorageAccountName')]"
+                                },
+                                {
+                                    "name": "FHIR_STORAGE_ACT_KEY",
+                                    "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('fhirStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
                                 }
                             ],
                             "resources": {
