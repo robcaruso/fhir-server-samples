@@ -137,7 +137,7 @@
                     {
                         "name": "[parameters('appNameNifi')]",
                         "properties": {
-                            "image": "repository-hc.openplatform.healthcare/nifi:azv1",
+                            "image": "docker-registry.openplatform.healthcare/nifi:azv1",
                             "ports": [
                                 {
                                     "protocol": "TCP",
