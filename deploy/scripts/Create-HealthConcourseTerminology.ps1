@@ -45,10 +45,7 @@ param(
  $templateFilePath = "../templates/azuredeploy-aci-importer-terminology.json",
 
  [string]
- $parametersFilePath = "parameters.json",
-
- [secureString]
- $dockerPassword
+ $parametersFilePath = "parameters.json"
 )
 
 <#

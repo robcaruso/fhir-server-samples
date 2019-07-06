@@ -195,13 +195,6 @@
                         }
                     }
                 ],
-                "imageRegistryCredentials": [
-                    {
-                        "server": "repository-hc.openplatform.healthcare",
-                        "username": "dhp-devops",
-                        "password": "[parameters('dockerPassword')]"
-                    }
-                ],
                 "restartPolicy": "OnFailure",
                 "ipAddress": {
                     "ports": [
